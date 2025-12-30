@@ -1,6 +1,7 @@
 #include "Fixed.hpp"
 
 // constructor
+//             vvv member initializer list
 Fixed::Fixed() : _fixedPointValue(0) {
 	std::cout << "Default constructor called" << std::endl;
 }
