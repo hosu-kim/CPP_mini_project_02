@@ -13,6 +13,8 @@ class Fixed {
 		// It converts it to the corresponding fixed-point value.
 		// The fractional bits value should be initialized to 8.
 		Fixed(const int value);
+	
+		
 		// copy constructor [X]
 		Fixed(const Fixed& other);
 		// copy assignment operator overload

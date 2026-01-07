@@ -5,9 +5,14 @@ Fixed::Fixed() : _fixedPointValue(0) {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-// a special constructor
-Fixed::Fixed(const int value) {
+// 과제1
+// constructor that takes a constant integer
+Fixed::Fixed(const int intValue) {
+	this->_fixedPointValue == intValue << _fractionalBits;
 }
+
+
+
 
 // copy constructor
 Fixed::Fixed(const Fixed& other) {
