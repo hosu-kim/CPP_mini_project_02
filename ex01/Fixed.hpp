@@ -9,11 +9,8 @@ class Fixed {
 		static const int _fractionalBits = 8;
 	public:
 		Fixed(); // itializes the fixed-point number value to 0. [X]
-		// A constructor that takes a constant integer as a parameter.
-		// It converts it to the corresponding fixed-point value.
-		// The fractional bits value should be initialized to 8.
-		Fixed(const int value);
-	
+		Fixed(const int value); // TASK 1
+		Fixed(const float value); // TASK 2
 		
 		// copy constructor [X]
 		Fixed(const Fixed& other);
@@ -24,6 +21,10 @@ class Fixed {
 		~Fixed();
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
+		float toFloat(void) const; // TASK 3
+		int toInt(void) const; // TASK 4
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
 #endif

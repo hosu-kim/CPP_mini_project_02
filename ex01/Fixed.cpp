@@ -7,12 +7,19 @@ Fixed::Fixed() : _fixedPointValue(0) {
 
 // 과제1
 // constructor that takes a constant integer
-Fixed::Fixed(const int intValue) {
-	this->_fixedPointValue == intValue << _fractionalBits;
+// 비트 시프트로 이동할수록 정수에 2가 제곱됨.
+Fixed::Fixed(const int intValue): _fixedPointValue(intValue << _fractionalBits) {
+	std::cout << "Int constructor called" << std::endl;
 }
 
-
-
+// 과제2: constructor that takes a constant floating-point number as a parameter
+//       converts it to the corresponding fixed-point value.
+//       the fractional bits value should be initialized to 8
+// Initializes _fixedPointValue by converting the provided float to fixed-point format.
+// 비트 연산자는 정수에서만 적용 가능하기 때문에 곱셈을 사용함.    vvv
+Fixed::Fixed(const float value): _fixedPointValue(value * (1 << _fractionalBits)) {
+	std::cout << "Float constructor called" << std::endl;
+}
 
 // copy constructor
 Fixed::Fixed(const Fixed& other) {
@@ -47,4 +54,19 @@ int Fixed::getRawBits(void) const {
 
 void Fixed::setRawBits(int const raw) {
 	this->_fixedPointValue = raw;
+}
+
+// TASK 3: A member function float toFloat( void ) const;
+//         that converts the fixed-point value to a floating-point value.
+float Fixed::toFloat(void) const {
+	return _fixedPointValue / (float)(1 << _fractionalBits);
+}
+
+int Fixed::toInt(void) const {
+	return _fixedPointValue >> _fractionalBits;
+}
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
+	os << fixed.toFloat();
+	return os;
 }

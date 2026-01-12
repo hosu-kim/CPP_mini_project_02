@@ -40,3 +40,5 @@ int Fixed::getRawBits(void) const {
 void Fixed::setRawBits(int const raw) {
 	this->_fixedPointValue = raw;
 }
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed); // TASK 5
