@@ -16,8 +16,8 @@ Fixed::Fixed(const int intValue): _fixedPointValue(intValue << _fractionalBits) 
 //       converts it to the corresponding fixed-point value.
 //       the fractional bits value should be initialized to 8
 // Initializes _fixedPointValue by converting the provided float to fixed-point format.
-// 비트 연산자는 정수에서만 적용 가능하기 때문에 곱셈을 사용함.    vvv
-Fixed::Fixed(const float value): _fixedPointValue(value * (1 << _fractionalBits)) {
+// 비트 연산자는 정수에서만 적용 가능하기 때문에 곱셈을 사용함.                vvv
+Fixed::Fixed(const float value): _fixedPointValue((int)roundf(value * (1 << _fractionalBits))) {
 	std::cout << "Float constructor called" << std::endl;
 }
 
