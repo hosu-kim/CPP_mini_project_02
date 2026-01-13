@@ -52,9 +52,12 @@ class Fixed {
 		// TASK 4
 		// static은 객체가 없어도 호출이 가능하다는 뜻이다.
 		static Fixed& min(Fixed& fpn1, Fixed& fpn2);
+		// TASK 5
 		static const Fixed& min(const Fixed& fpn1, const Fixed& fpm2);
+		// TASK 6
 		static Fixed& max(Fixed& fpn1, Fixed& fpn2);
-		static const Fixed& max(const Fixed& fpn1, Fixed& fpn2);
+		// TASK 7
+		static const Fixed& max(const Fixed& fpn1, const Fixed& fpn2);
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed);

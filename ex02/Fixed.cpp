@@ -2,14 +2,12 @@
 
 // constructor
 Fixed::Fixed() : _fixedPointValue(0) {
-	std::cout << "Default constructor called" << std::endl;
 }
 
 // 과제1
 // constructor that takes a constant integer
 // 비트 시프트로 이동할수록 정수에 2가 제곱됨.
 Fixed::Fixed(const int intValue): _fixedPointValue(intValue << _fractionalBits) {
-	std::cout << "Int constructor called" << std::endl;
 }
 
 // 과제2: constructor that takes a constant floating-point number as a parameter
@@ -18,12 +16,10 @@ Fixed::Fixed(const int intValue): _fixedPointValue(intValue << _fractionalBits) 
 // Initializes _fixedPointValue by converting the provided float to fixed-point format.
 // 비트 연산자는 정수에서만 적용 가능하기 때문에 곱셈을 사용함.                vvv
 Fixed::Fixed(const float value): _fixedPointValue((int)roundf(value * (1 << _fractionalBits))) {
-	std::cout << "Float constructor called" << std::endl;
 }
 
 // copy constructor
 Fixed::Fixed(const Fixed& other) {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 }
 
@@ -32,8 +28,6 @@ Fixed::Fixed(const Fixed& other) {
 // : 연산자가 어떻게 작동할지 내가 직접 정의하겠음.
 //   Fixed 객체끼리는 =가 어떻게 동작할지 정의함.
 Fixed& Fixed::operator=(const Fixed& other) {
-	std::cout << "Copy assignment operator called" << std::endl;
-
 	if (this != &other) {
 		this->_fixedPointValue = other._fixedPointValue;
 	}
@@ -42,13 +36,10 @@ Fixed& Fixed::operator=(const Fixed& other) {
 
 // destructor
 Fixed::~Fixed() {
-	std::cout << "Destructor called" << std::endl;
 }
 
 // const: 읽기 전용
 int Fixed::getRawBits(void) const {
-	std::cout << "getRawBits member function called" << std::endl;
-
 	return this->_fixedPointValue;
 }
 
@@ -177,7 +168,7 @@ Fixed& Fixed::max(Fixed& fpn1, Fixed& fpn2) {
 // TASK 7: TASK 7: A static member function max
 //         that takes two references to constant fixed-point numbers
 //         as parameters, and returns a reference to the greatest one.
-const Fixed& Fixed::max(const Fixed& fpn1, Fixed& fpn2) {
+const Fixed& Fixed::max(const Fixed& fpn1, const Fixed& fpn2) {
 	if (fpn1.toFloat() >= fpn2.toFloat())
 		return fpn1;
 	else
