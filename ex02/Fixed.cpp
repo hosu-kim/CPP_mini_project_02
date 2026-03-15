@@ -114,6 +114,7 @@ Fixed& Fixed::operator++() {
 	return *this;
 }
 
+// C++ 개발자가 operator++에서 더미 인자 int를 받으면 후위 연산자라는 것을 약속으로 정함.
 // Post-increment: 반환 후 증가
 Fixed Fixed::operator++(int) {
 	Fixed temp = *this;
